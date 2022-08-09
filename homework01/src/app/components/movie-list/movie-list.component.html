@@ -1,0 +1,19 @@
+<div class="movie-list">
+  <h2> {{movieListTitle}}</h2>
+  <app-movie [movieTitle]="movieTitle" (movieToParent)="onMovieRecieved($event)" [displayMovie]="displayMovie">
+  </app-movie>
+  <div class="movie-card" *ngIf="displayMovie">
+    <div class="movie-card__image">
+      <img [src]="movieFromChild.imageUrl" [alt]="movieFromChild.imageAlt">
+    </div>
+    <div class="movie-card__details">
+      <h3>{{movieFromChild.name}} ({{movieFromChild.releaseDate}})</h3>
+      <ul>
+        <li class="red">Genre: {{movieFromChild.genre.join(", ")}}</li>
+        <li>Director: {{movieFromChild.director}}</li>
+        <li>Producer: {{movieFromChild.producer}}</li>
+      </ul>
+      <p>{{movieFromChild.description}}</p>
+    </div>
+  </div>
+</div>
