@@ -7,7 +7,7 @@ import { Movie } from 'src/app/helpers/movie';
   styleUrls: ['./movie-list.component.scss']
 })
 export class MovieListComponent implements OnInit {
-  movieFromChild: any = {};
+  movieFromChild: Movie;
   displayMovie: boolean = false;
 
   constructor() { }
