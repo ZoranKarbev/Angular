@@ -21,11 +21,11 @@ API: https://www.balldontlie.io/
    (Also create a player interface based on the player object)
    https://www.balldontlie.io/api/v1/players
 
-   6.1 In the Player component, render the player first name in lowercase. Don't use CSS or .toLowerCase()
+6. 6.1 In the Player component, render the player first name in lowercase. Don't use CSS or .toLowerCase()
 
    6.2 Render the player last name in uppercase
 
-   7.1 Create a new stats component. Add an API call to pull stats and renders a few properties. (Don't bother creating an interface for this, the objects are too complex)
+7. 7.1 Create a new stats component. Add an API call to pull stats and renders a few properties. (Don't bother creating an interface for this, the objects are too complex)
 
    7.2 The fg_pct property should be rendered as a percent
 
