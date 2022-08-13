@@ -8,15 +8,14 @@ API: https://www.balldontlie.io/
    (Create a team interface based on the team object)
    https://www.balldontlie.io/api/v1/teams
 
-2. In the team component,
-   based on the conference (EAST/WEST) of the team add dynamic inline style to the team <div> that decides the background color of that <div>.
+2. In the team component, based on the conference (EAST/WEST) of the team add dynamic inline style to the team 'div' that decides the background color of that 'div'.
    hint: You can use a ternary operator for this. (East is blue, West is red, naturally :D )
 
-3. In the team component, based on the division, add a dynamic class to each team <div> and style it however you like.
+3. In the team component, based on the division, add a dynamic class to each team 'div' and style it however you like.
 
 4. Add a property that will conditionally control whether only West or East Team component elements will render, and create a button that calls a function that toggles that property. Set the property initially to either East or West.
 
-   5.1 In the Team component listen to a click event that will emit the value of the team abbreviation to the parent app.component.
+5. 5.1 In the Team component listen to a click event that will emit the value of the team abbreviation to the parent app.component.
 
    5.2 This event needs to trigger a method that makes an API call that gets players. Use the team abbreviation to only render the player from that team in a new Player component.
    (Also create a player interface based on the player object)
