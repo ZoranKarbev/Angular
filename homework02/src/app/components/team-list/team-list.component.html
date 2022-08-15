@@ -1,6 +1,14 @@
 <section>
-  <h2>Eastern/Western Conf.</h2>
-  <div class="teams">
-    <team *ngFor="let team of teamsData" [team]="team"></team>
+  <div>
+    <button (click)="toggleConference()">
+      {{conference === "East"? "Show Western Conference" : "Show Eastern Conference"}}
+    </button>
+  </div>
+  <div class="teams-list">
+    <h2> {{title}} </h2>
+
+    <div class="teams">
+      <team *ngFor="let team of teamsToDisplay()" [team]="team"></team>
+    </div>
   </div>
 </section>

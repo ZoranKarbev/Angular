@@ -7,7 +7,7 @@ import { Team } from './interfaces/team';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'Baketball App';
+  title = 'Basketball App';
   teamsData: Team[];
   constructor() { }
 
