@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Team } from './interfaces/team';
 
 @Component({
   selector: 'app-root',
@@ -7,13 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   title = 'Baketball App';
+  teamsData: Team[];
   constructor() { }
 
   ngOnInit(): void {
     fetch('https://www.balldontlie.io/api/v1/teams')
     .then(response => response.json())
     .then(data => {
-      console.log(data);
+      this.teamsData = data.data;
+      console.log(this.teamsData);
+      console.log(this.teamsData[0]);
     })
     .catch(error => console.log(error));
   }
