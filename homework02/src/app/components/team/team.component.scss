@@ -1,6 +1,10 @@
 .team{
   padding: 0.5em 1em;
+  cursor: pointer;
+  border-radius: 0.3em;
+  font-weight: 500;
 }
+
 .Atlantic {
   color: #f8e2cf;
 }
@@ -11,11 +15,16 @@
   color: #d7f5e7;
 }
 .Northwest {
-  color: #aaf7b9;
+  color: #dbe0e8;
 }
 .Pacific {
-  color: #eeb7e2;
+  color: #d9edd2;
 }
 .Southwest {
-  color: #f9c3c3;
+  color: #ffebeb;
+}
+.team:hover {
+  scale: 1.04;
+  background-color: black!important;
+  color: white;
 }

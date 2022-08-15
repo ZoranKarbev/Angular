@@ -1,2 +1,3 @@
-<div class="team" [ngStyle]="{ backgroundColor: bgColor(team) }" [ngClass]="team.division">{{team.city}} {{team.name}}
+<div class="team" [ngStyle]="{ backgroundColor: bgColor(team) }" [ngClass]="team.division" (click)="sendTeamToParent()">
+  {{team.city}} {{team.name}}
 </div>

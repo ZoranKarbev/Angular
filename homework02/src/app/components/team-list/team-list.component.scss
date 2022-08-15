@@ -3,4 +3,26 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.5em;
+  justify-content: center;
+}
+.team-list__header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  gap: 1em;
+}
+.team-list__info {
+  text-align: center;
+}
+
+.loader {
+  text-align: center;
+  font-size: 2rem;
+  margin: 1.5rem auto;
+  display: grid;
+  place-content: center;
+}
+.player-list {
+  display: flex;
 }

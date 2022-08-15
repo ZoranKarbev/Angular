@@ -8,6 +8,7 @@ import { Team } from './interfaces/team';
 })
 export class AppComponent implements OnInit {
   title = 'Basketball App';
+  areTeamsFetched: boolean = false;
   teamsData: Team[];
   constructor() { }
 
@@ -18,6 +19,7 @@ export class AppComponent implements OnInit {
       this.teamsData = data.data;
       console.log(this.teamsData);
       console.log(this.teamsData[0]);
+      this.areTeamsFetched = true;
     })
     .catch(error => console.log(error));
   }

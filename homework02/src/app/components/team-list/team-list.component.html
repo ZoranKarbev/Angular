@@ -1,14 +1,23 @@
 <section>
-  <div>
+  <div class="team-list__header">
+    <h2> {{title}} </h2>
     <button (click)="toggleConference()">
-      {{conference === "East"? "Show Western Conference" : "Show Eastern Conference"}}
+      {{conference === "East"? "Western" : "Eastern"}}
     </button>
   </div>
+  <div class="loader" *ngIf="!areTeamsFetched">Loading...</div>
   <div class="teams-list">
-    <h2> {{title}} </h2>
-
-    <div class="teams">
-      <team *ngFor="let team of teamsToDisplay()" [team]="team"></team>
+    <div class="teams" *ngIf="!!teamsData">
+      <team (teamToParent)="onTeamReceieved($event)" *ngFor="let team of teamsToDisplay()" [team]="team"></team>
+    </div>
+  </div>
+  <p class="team-list__info" *ngIf="areTeamsFetched">*click on team to load players</p>
+  <div class="player-list">
+    <!-- <div class="loader" *ngIf="!arePlayersFetched">Loading...</div> -->
+    <div class="players" *ngIf="playersList && playersList.length > 0">
+      <h2>Players:</h2>
+      <player *ngFor="let player of playersList" [player]="player"></player>
+      <!-- <team (teamToParent)="onTeamReceieved($event)" *ngFor="let team of teamsToDisplay()" [team]="team"></team> -->
     </div>
   </div>
 </section>
