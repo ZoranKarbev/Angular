@@ -17,6 +17,7 @@ export class TeamListComponent implements OnInit {
   playersList: Player[]; 
   arePlayersFetched: boolean = false;
   displayLoader: boolean = false;
+  displayLoader2: boolean = false;
   stats: any;
   constructor() { }
 
@@ -35,11 +36,11 @@ export class TeamListComponent implements OnInit {
     this.teamNameFromChidren = teamName;
     console.log(this.teamNameFromChidren);
     this.fetchPlayers()
-    // this.teamNameFromChidren = "";
   }
   
   fetchPlayers(): void {
     this.playersList = [];
+    this.stats = null;
     if (this.teamNameFromChidren) {
       console.log("Team", this.teamNameFromChidren);
       fetch('https://www.balldontlie.io/api/v1/players?per_page=100')
@@ -55,11 +56,13 @@ export class TeamListComponent implements OnInit {
     }
   } 
   onPlayerIdReceived(playerId: number): void {
+    this.displayLoader2 = true;
     this.playerIdfromChildren = playerId;
     console.log("PlayerId", this.playerIdfromChildren);
     this.fetchStats(playerId);     
   }
   fetchStats(playerId: number): void {
+    this.stats = null;
     fetch( `https://www.balldontlie.io/api/v1/stats?player_ids[]=${playerId}`)
     .then(response => response.json())
     .then(data => {
@@ -68,6 +71,8 @@ export class TeamListComponent implements OnInit {
       console.log("RandomNumber", randNumber);
       this.stats = data.data[randNumber];
       console.log("Stats", this.stats);
+      this.displayLoader2 = false;
+
     })
     .catch(error => console.log(error));
   }
