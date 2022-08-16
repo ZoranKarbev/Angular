@@ -7,7 +7,6 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class StatsComponent implements OnInit {
   @Input() stats:any;
-  @Input() displayStatsError: boolean;
 
   constructor() { }
 

@@ -19,69 +19,71 @@ export class TeamListComponent implements OnInit {
   displayLoader: boolean = false;
   displayLoader2: boolean = false;
   displayStatsError: boolean = false;
+  displayPlayersError: boolean = false;
   stats: any;
   constructor() { }
 
   ngOnInit(): void {
-  }
-  
+  }  
+ 
   teamsToDisplay(): Team[] {
     return this.teamsData.filter(team => team.conference === this.conference);
   }
+ 
   toggleConference() {
     this.title = this.title === "Eastern Conference" ? "Western Conference" : "Eastern Conference";
     this.conference = this.conference === "East" ? "West" : "East";
   }
+ 
   onTeamReceieved(teamName: string): void {
+    this.displayPlayersError = false;
     this.displayLoader = true;
     this.teamNameFromChidren = teamName;
-    console.log(this.teamNameFromChidren);
     this.fetchPlayers()
   }
-  
+ 
   fetchPlayers(): void {
     this.playersList = [];
     this.stats = null;
     if (this.teamNameFromChidren) {
-      console.log("Team", this.teamNameFromChidren);
       fetch('https://www.balldontlie.io/api/v1/players?per_page=100')
       .then(response => response.json())
       .then(data => {
       this.playersList = data.data
         .filter((player: Player) => player.team.abbreviation === this.teamNameFromChidren);
-      console.log("PlayerList", this.playersList);
+      if(this.playersList.length < 1) {
+        this.displayPlayersError = true;
+        this.displayLoader = false;
+        return;
+      }
       this.arePlayersFetched = true;
       this.displayLoader = false;
       })
     .catch(error => console.log(error));
     }
   } 
+ 
   onPlayerIdReceived(playerId: number): void {
     this.displayStatsError = false;
     this.displayLoader2 = true;
     this.playerIdfromChildren = playerId;
-    console.log("PlayerId", this.playerIdfromChildren);
     this.fetchStats(playerId);     
   }
+ 
   fetchStats(playerId: number): void {
     this.stats = null;
     fetch( `https://www.balldontlie.io/api/v1/stats?player_ids[]=${playerId}`)
     .then(response => response.json())
     .then(data => {
-      console.log("Data", data);
       if(data.data.length < 1) {
         this.displayStatsError = true;
-        console.log("No stats for this player");
         this.stats = null;
         this.displayLoader2 = false;
-        console.log("Stats", this.stats);
         return;
       } 
       this.displayStatsError = false;
       const randomGame = Math.floor(Math.random() * data.data.length);
-      console.log("RandomNumber", randomGame);
       this.stats = data.data[randomGame];
-      console.log("Stats", this.stats);
       this.displayLoader2 = false;
 
     })

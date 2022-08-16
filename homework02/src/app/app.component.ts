@@ -17,8 +17,6 @@ export class AppComponent implements OnInit {
     .then(response => response.json())
     .then(data => {
       this.teamsData = data.data;
-      console.log(this.teamsData);
-      console.log(this.teamsData[0]);
       this.areTeamsFetched = true;
     })
     .catch(error => console.log(error));

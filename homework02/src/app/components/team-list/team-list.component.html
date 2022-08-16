@@ -12,6 +12,8 @@
     </div>
   </div>
   <p class="team-list__info" *ngIf="areTeamsFetched">*click on team to load players</p>
+</section>
+<section>
   <div class="player-list">
     <div class="loader" *ngIf="displayLoader">Loading...</div>
     <div class="players" *ngIf="playersList && playersList.length > 0">
@@ -19,16 +21,17 @@
       <player (playerToParent)="onPlayerIdReceived($event)" *ngFor="let player of playersList" [player]="player">
       </player>
     </div>
+    <div class="players-error" *ngIf="displayPlayersError"> No PLayers. Try another Team! </div>
   </div>
+</section>
+<section>
   <div class="stats">
     <div class="loader" *ngIf="displayLoader2">Loading...</div>
-
     <div class="fun-fact" *ngIf="!!stats">
       <h3>Fun stats fact:</h3>
-      <stats [stats]="stats" [displayStatsError]="displayStatsError">
+      <stats [stats]="stats">
       </stats>
     </div>
     <div class="stats-error" *ngIf="displayStatsError"> No Stats. Try another Player! </div>
-
   </div>
 </section>
