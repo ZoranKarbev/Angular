@@ -13,8 +13,11 @@ export class TeamListComponent implements OnInit {
   title: string = "Eastern Conference";
   conference: string = "East";
   teamNameFromChidren: string;
+  playerIdfromChildren: number;
   playersList: Player[]; 
   arePlayersFetched: boolean = false;
+  displayLoader: boolean = false;
+  stats: any;
   constructor() { }
 
   ngOnInit(): void {
@@ -28,12 +31,15 @@ export class TeamListComponent implements OnInit {
     this.conference = this.conference === "East" ? "West" : "East";
   }
   onTeamReceieved(teamName: string): void {
+    this.displayLoader = true;
     this.teamNameFromChidren = teamName;
     console.log(this.teamNameFromChidren);
     this.fetchPlayers()
+    // this.teamNameFromChidren = "";
   }
   
   fetchPlayers(): void {
+    this.playersList = [];
     if (this.teamNameFromChidren) {
       console.log("Team", this.teamNameFromChidren);
       fetch('https://www.balldontlie.io/api/v1/players?per_page=100')
@@ -43,8 +49,26 @@ export class TeamListComponent implements OnInit {
         .filter((player: Player) => player.team.abbreviation === this.teamNameFromChidren);
       console.log("PlayerList", this.playersList);
       this.arePlayersFetched = true;
+      this.displayLoader = false;
       })
     .catch(error => console.log(error));
     }
   } 
+  onPlayerIdReceived(playerId: number): void {
+    this.playerIdfromChildren = playerId;
+    console.log("PlayerId", this.playerIdfromChildren);
+    this.fetchStats(playerId);     
+  }
+  fetchStats(playerId: number): void {
+    fetch( `https://www.balldontlie.io/api/v1/stats?player_ids[]=${playerId}`)
+    .then(response => response.json())
+    .then(data => {
+      console.log("Data", data);
+      const randNumber = Math.floor(Math.random() * data.data.length);
+      console.log("RandomNumber", randNumber);
+      this.stats = data.data[randNumber];
+      console.log("Stats", this.stats);
+    })
+    .catch(error => console.log(error));
+  }
 }

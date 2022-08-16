@@ -13,11 +13,20 @@
   </div>
   <p class="team-list__info" *ngIf="areTeamsFetched">*click on team to load players</p>
   <div class="player-list">
-    <!-- <div class="loader" *ngIf="!arePlayersFetched">Loading...</div> -->
+    <div class="loader" *ngIf="displayLoader">Loading...</div>
     <div class="players" *ngIf="playersList && playersList.length > 0">
       <h2>Players:</h2>
-      <player *ngFor="let player of playersList" [player]="player"></player>
+      <player (playerToParent)="onPlayerIdReceived($event)" *ngFor="let player of playersList" [player]="player">
+      </player>
       <!-- <team (teamToParent)="onTeamReceieved($event)" *ngFor="let team of teamsToDisplay()" [team]="team"></team> -->
     </div>
   </div>
+  <div class="stats">
+    <div class="fun-fact" *ngIf="!!stats">
+      <h3>Fun stats fact:</h3>
+      <stats [stats]="stats">
+      </stats>
+    </div>
+  </div>
+
 </section>
