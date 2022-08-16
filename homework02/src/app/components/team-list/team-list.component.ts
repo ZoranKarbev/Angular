@@ -18,6 +18,7 @@ export class TeamListComponent implements OnInit {
   arePlayersFetched: boolean = false;
   displayLoader: boolean = false;
   displayLoader2: boolean = false;
+  displayStatsError: boolean = false;
   stats: any;
   constructor() { }
 
@@ -56,6 +57,7 @@ export class TeamListComponent implements OnInit {
     }
   } 
   onPlayerIdReceived(playerId: number): void {
+    this.displayStatsError = false;
     this.displayLoader2 = true;
     this.playerIdfromChildren = playerId;
     console.log("PlayerId", this.playerIdfromChildren);
@@ -67,9 +69,18 @@ export class TeamListComponent implements OnInit {
     .then(response => response.json())
     .then(data => {
       console.log("Data", data);
-      const randNumber = Math.floor(Math.random() * data.data.length);
-      console.log("RandomNumber", randNumber);
-      this.stats = data.data[randNumber];
+      if(data.data.length < 1) {
+        this.displayStatsError = true;
+        console.log("No stats for this player");
+        this.stats = null;
+        this.displayLoader2 = false;
+        console.log("Stats", this.stats);
+        return;
+      } 
+      this.displayStatsError = false;
+      const randomGame = Math.floor(Math.random() * data.data.length);
+      console.log("RandomNumber", randomGame);
+      this.stats = data.data[randomGame];
       console.log("Stats", this.stats);
       this.displayLoader2 = false;
 
