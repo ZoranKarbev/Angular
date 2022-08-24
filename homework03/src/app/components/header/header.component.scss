@@ -20,30 +20,34 @@
     a {
       padding: 3px 3px;
       text-decoration: none;
-      color: white;
+      color: #ffffff;
     }
-    
     a:hover {
       color: #dad7d7
     }
   }
 
   ul {
-      overflow: hidden;
+    overflow: hidden;
+    font-weight: 500;
+    li {
+        float: left;
+        list-style: none;
+        margin: 13px 20px;
+    
+        a {
+          padding: 23px 13px;
+          text-decoration: none;
+          color: #ffffff;
+        }
+    
+        a:hover {
+          color: #dad7d7;
+        }
+      }
+
   }
-  li {
-    float: left;
-    list-style: none;
-    margin: 13px 20px;
-    a {
-      padding: 23px 13px;
-      text-decoration: none;
-      color: #ffffff;
-    }
-    a:hover {
-      color: #dad7d7;     
-    }
-  }
+  
 }
 .active {
   background-color: red;
