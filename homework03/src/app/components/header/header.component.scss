@@ -3,10 +3,12 @@
   border-bottom-right-radius: 0.5em;
   border-bottom-left-radius: 0.5em;
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
   font-size: 18px;
+  margin-bottom: 2rem;
 
   .brand__title {
     color: #ffffff;
@@ -34,7 +36,7 @@
     li {
       float: left;
       list-style: none;
-      margin: 13px 20px;
+      margin: 13px 1px;
       a {
         padding: 23px 13px;
         text-decoration: none;
@@ -48,4 +50,26 @@
 }
 .active {
   background-color: red;
+}
+
+@media only screen and (max-width: 770px) {
+  .navbar {
+    flex-direction: column;
+    padding: 0 2px;
+    .brand__title {
+      margin-left: 0px;
+      font-size: 20px;
+      letter-spacing: 3px;
+      margin: 0.5em 0.2em;
+    }
+    ul {
+      padding-inline-start: 0;
+      li {
+        margin: 5px 1px;
+        a {
+          padding: 13px 13px;
+        }
+      }
+    }
+  }
 }
