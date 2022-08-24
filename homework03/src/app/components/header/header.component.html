@@ -1,12 +1,18 @@
 <header>
   <nav class="navbar">
     <div class="brand__title">
-      <a href="#">Recipes App</a>
+      <a routerLink="/">
+        Recipes App
+      </a>
     </div>
     <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Recipes</a></li>
-      <li><a href="#">Add Recipe</a></li>
+      <li>
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          Home
+        </a>
+      </li>
+      <li><a routerLink="recipes" routerLinkActive="active">Recipes</a></li>
+      <li><a routerLink="add-recipe" routerLinkActive="active">Add Recipe</a></li>
     </ul>
   </nav>
 </header>
