@@ -1,4 +1,16 @@
-<h1>Recipe Details</h1>
-<ng-container *ngIf="!!recipe">
-  <p>{{recipe.name}}</p>
-</ng-container>
+<section class="recipe-details">
+  <h1>Recipe Details</h1>
+  <ng-container *ngIf="recipe$ | async as recipe">
+    <h2>{{recipe.name}}</h2>
+    <p>{{recipe.description}}</p>
+  </ng-container>
+</section>
+
+<!-- <div class="recipes">
+  <h1>Recipes</h1>
+  <ul class="recipes__list">
+    <li *ngFor="let recipe of recipes" (click)="onNavigateRecipe(recipe)" class="recipes__list__item">
+      ID:{{ recipe.id }} {{ recipe.name }}
+    </li>
+  </ul>
+</div> -->

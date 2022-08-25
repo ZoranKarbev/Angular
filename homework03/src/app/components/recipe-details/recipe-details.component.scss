@@ -1,0 +1,12 @@
+.recipe-details {
+  display: flex;
+  height: 80vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  // font-size: x-large;
+  background-color: #ffffff;
+  p {
+    font-size: 30px;
+  }
+}

@@ -28,7 +28,7 @@ export class RecipesService {
     },
     {
       id: 4,
-      name: 'Coffe Cake',
+      name: 'Coffee Cake',
       description: 'Nice coffee cake',
       ingredients: ['flour', 'sugar', 'baking powder', 'salt', 'butter', 'eggs', 'milk'] 
     },
@@ -46,19 +46,13 @@ export class RecipesService {
   constructor() { }
 
   getAllRecipes() {
-    // console.log("Servis")
-    const recipes = this.recipesBehaviourSubject.getValue();
-    this.recipesBehaviourSubject.next([...recipes]);
-    console.log("Servis recepti", recipes)
-    // console.log(this.recipesBehaviourSubject.next(this.recipesData))
-    // this.recipesBehaviourSubject.next([...this.recipesData])
-    // this.recipesBehaviourSubject.next([...this.recipes])
+    return this.$recipesObs
   }
   getRecipeById(id: number) {
     const recipes = this.recipesBehaviourSubject.getValue();
     const foundRecipe = recipes.filter(recipe => recipe.id === id)
-    this.recipesBehaviourSubject.next(foundRecipe)
     console.log(foundRecipe)
+    return foundRecipe
   }
   addRecipe(recipe: Recipe) {
     const recipes = this.recipesBehaviourSubject.getValue();
