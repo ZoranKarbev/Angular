@@ -1,1 +1,28 @@
-<p>add-recipe works!</p>
+<form (ngSubmit)="onFormSubmit()" [formGroup]="recipeForm">
+  <div class="form-group">
+    <label for="recipe-name">Recipe Name</label>
+    <input autocomplete="off" type="text" class="form-input" id="recipe-name" formControlName="name" />
+  </div>
+  <!-- <p class="help-block" *ngIf=" this.recipeForm.get('name')?.touched && recipeForm.get('name')?.errors"> -->
+  <p class="help-block" *ngIf="recipeForm.get('name')?.touched && recipeForm.get('name')?.errors">
+    Title is required!
+  </p>
+  <div class="form-group">
+    <label for="recipe-descirption">Description</label>
+    <textarea class="form-input" id="recipe-descirption" cols="30" rows="3" formControlName="description"></textarea>
+    <p class="comment-length">
+      {{ recipeForm.value?.description?.length }}/{{ maximumDescriptionSize }}
+    </p>
+    <p class="help-block" *ngIf="this.recipeForm.get('description')?.touched && recipeForm.get('description')?.errors">
+      Description is required!
+    </p>
+  </div>
+  <div class="form-group">
+    <label for="recipe-ingredients">Ingredients</label>
+    <input autocomplete="off" type="text" class="form-input" id="recipe-ingredients" formControlName="ingredients" />
+  </div>
+  <p class="help-block" *ngIf="this.recipeForm.get('ingredients')?.touched && recipeForm.get('ingredients')?.errors">
+    Ingredients are required!
+  </p>
+  <button class="btn" type="submit">ADD RECIPE</button>
+</form>

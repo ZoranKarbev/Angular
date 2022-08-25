@@ -14,7 +14,7 @@ export class RecipeDetailsComponent implements OnInit {
   constructor(private recipesService: RecipesService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    // console.log(this.route.snapshot.params['id'])
+    console.log(this.route.snapshot.params['id'])
     this.recipe$ = this.route.paramMap.pipe(
       switchMap(params => {
         let id = params.get('id');
