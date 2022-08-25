@@ -1,8 +1,9 @@
 <section class="recipe-details">
   <h1>Recipe Details</h1>
   <ng-container *ngIf="recipe$ | async as recipe">
-    <h2>{{recipe.name}}</h2>
-    <p>{{recipe.description}}</p>
+    <h2>Name: {{recipe?.name}}</h2>
+    <p>Description: {{recipe?.description}}</p>
+    <p>Ingredients: {{recipe?.ingredients?.join(', ')}}</p>
   </ng-container>
   <a routerLink="/recipes">Back to Recipes</a>
 </section>

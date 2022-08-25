@@ -15,10 +15,12 @@ export class AddRecipeComponent implements OnInit {
   recipe: Recipe;
   recipesLength: number;  
   recipesSubscription: Subscription;
+  isFormSubmitted: boolean = false;
 
   constructor(private recipesService: RecipesService) { }
 
   ngOnInit(): void {
+    this.isFormSubmitted = false;
     this.initForm();
     this.recipesSubscription = this.recipesService.getAllRecipes().subscribe((recipesData) => {
       this.recipesLength = recipesData.length
@@ -28,14 +30,22 @@ export class AddRecipeComponent implements OnInit {
   onFormSubmit() {
     console.log("Recipe Form", this.recipeForm);
     console.log("Recipe Form Status", this.recipeForm.status);
-    if(!this.recipeForm.valid) return;
+    if(!this.recipeForm.valid) {
+    console.log("Recipe Form", this.recipeForm);
+      return;
+    }
     console.log('Form Value', this.recipeForm.value);
     console.log('Ingredients Value', this.recipeForm.value.ingredients.split(', '));
-    this.recipe = { id:this.recipesLength + 1, ...this.recipeForm.value } 
+    this.recipe = { 
+      id:this.recipesLength + 1, 
+      ...this.recipeForm.value, 
+      ingredients: this.recipeForm.value.ingredients.split(', ')
+    } 
     console.log("Recipe", this.recipe)
     this.recipesService.addRecipe(this.recipe);
     if (this.recipeForm.valid) {
     console.log("Form Submitted!");
+      this.isFormSubmitted = true;
     this.recipeForm.reset();
     }
   }
@@ -44,6 +54,6 @@ export class AddRecipeComponent implements OnInit {
       name: new FormControl('', [Validators.required]),
       description: new FormControl('', [Validators.required, Validators.maxLength(this.maximumDescriptionSize)]),
       ingredients: new FormControl('', [Validators.required])
-    })
+    })  
   }
 }

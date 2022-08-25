@@ -11,6 +11,7 @@ form {
   color: $color-light;
   font-weight: 500;
   margin-top: 2rem;
+  padding-bottom: 30px;
 }
 
 .form-group {
@@ -61,3 +62,8 @@ textarea.ng-invalid.ng-touched {
   font-weight: 700;
 }
 
+.submit-message {
+  color: $color-red;
+  font-weight: 700;
+  text-align: center;
+}
