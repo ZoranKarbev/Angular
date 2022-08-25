@@ -1,1 +1,8 @@
-<p>recipes works!</p>
+<div class="recipes">
+  <h1>Recipes</h1>
+  <ul class="recipes__list">
+    <li *ngFor="let recipe of recipes" (click)="onNavigateRecipe(recipe)" class="recipes__list__item">
+      ID: {{ recipe.id }} {{ recipe.name }}
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,25 @@
+.recipes{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: x-large;
+  background-color: #ffffff;
+  &__list {
+    padding-left: 0;
+    margin-top: 0;
+    &__item {
+      background-color: #f3f3f3;
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 3px 8px;
+      color: black;
+      cursor: pointer;
+      border-radius: 0.2em;
+      padding: 1em 2em;
+      margin: .6em;
+    }
+    &__item:hover {
+      box-shadow: rgba(0, 0, 0, 0.45) 0px 3px 8px;
+      transform: scale(1.03);
+    }
+  }
+}
