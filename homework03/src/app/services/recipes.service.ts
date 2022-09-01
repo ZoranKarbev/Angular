@@ -51,7 +51,6 @@ export class RecipesService {
   getRecipeById(id: number) {
     const recipes = this.recipesBehaviourSubject.getValue();
     const foundRecipe = recipes.filter(recipe => recipe.id === id)
-    console.log(foundRecipe)
     return foundRecipe
   }
   addRecipe(recipe: Recipe) {

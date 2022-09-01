@@ -15,13 +15,9 @@ export class RecipesComponent implements OnInit, OnDestroy {
   constructor(private recipesService: RecipesService, private router: Router) { }
 
   ngOnInit(): void {
-    // this.recipesSubscription = this.recipesService.recipesBehaviourSubject.subscribe({
-    //   next: (value) => (this.recipes = value),
-    // });
     this.recipesSubscription = this.recipesService.getAllRecipes().subscribe((recipesData) => {
       this.recipes = recipesData
     })
-    console.log(this.recipes)   
   }
 
   ngOnDestroy(): void {
@@ -29,7 +25,6 @@ export class RecipesComponent implements OnInit, OnDestroy {
   }
   
   onNavigateRecipe(selectedRecipe: Recipe) {
-    console.log(selectedRecipe);
     this.router.navigate(['recipe-details', selectedRecipe.id]);
   }
 }

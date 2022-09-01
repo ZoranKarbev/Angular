@@ -25,26 +25,16 @@ export class AddRecipeComponent implements OnInit {
     this.recipesSubscription = this.recipesService.getAllRecipes().subscribe((recipesData) => {
       this.recipesLength = recipesData.length
     })
-    console.log('Recipes Length', this.recipesLength)
   }
   onFormSubmit() {
-    console.log("Recipe Form", this.recipeForm);
-    console.log("Recipe Form Status", this.recipeForm.status);
-    if(!this.recipeForm.valid) {
-    console.log("Recipe Form", this.recipeForm);
-      return;
-    }
-    console.log('Form Value', this.recipeForm.value);
-    console.log('Ingredients Value', this.recipeForm.value.ingredients.split(', '));
+    if(!this.recipeForm.valid) return;
     this.recipe = { 
       id:this.recipesLength + 1, 
       ...this.recipeForm.value, 
       ingredients: this.recipeForm.value.ingredients.split(', ')
     } 
-    console.log("Recipe", this.recipe)
     this.recipesService.addRecipe(this.recipe);
     if (this.recipeForm.valid) {
-    console.log("Form Submitted!");
       this.isFormSubmitted = true;
     this.recipeForm.reset();
     }
