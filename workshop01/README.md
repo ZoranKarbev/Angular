@@ -1,6 +1,4 @@
-# Workshop01
-
-## The swapi app exercise
+# Workshop - The swapi app exercise
 
 ### Requirements
 
@@ -22,8 +20,8 @@
 
 ### Endpoints used:
 
-People: "https://swapi.dev/api/people"
-Planets "https://swapi.dev/api/planets"
+- People: "https://swapi.dev/api/people"
+- Planets "https://swapi.dev/api/planets"
 
 ---
 
