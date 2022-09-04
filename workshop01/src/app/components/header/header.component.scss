@@ -1,0 +1,95 @@
+@import "../../../variables.scss";
+header {
+  background-color: $color-dark-blue-transparent;
+}
+.navbar {
+  color: $color-light;
+  border-bottom-right-radius: 0.5em;
+  border-bottom-left-radius: 0.5em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  font-size: 18px;
+
+  .brand__title {
+    color: $color-light;
+    margin-left: 20px;
+    font-size: 28px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 500;
+
+    a {
+      padding: 3px 3px;
+      text-decoration: none;
+      font-family: $font-star-wars;
+      color: $color-light;
+    }
+
+    a:hover {
+      color: $color-yellow
+    }
+  }
+
+  ul {
+    overflow: hidden;
+    font-weight: 500;
+
+    li {
+      float: left;
+      list-style: none;
+      margin: 13px 1px;
+
+      a {
+        padding: 23px 13px;
+        text-decoration: none;
+        color: $color-light;
+      }
+
+      a:hover {
+        color: $color-yellow;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 770px) {
+  .navbar {
+    flex-direction: column;
+    padding: 0 2px;
+
+    .brand__title {
+      margin-left: 0px;
+      font-size: 20px;
+      letter-spacing: 3px;
+      margin: 0.5em 0.2em;
+      margin-bottom: 0;
+    }
+
+    ul {
+      padding-inline-start: 0;
+      font-size: 14px;
+      margin-top: 0;
+
+      li {
+        margin: 5px 1px;
+
+        a {
+          padding: 7px 7px;
+        }
+      }
+    }
+  }
+}
+@media (min-width: 1200px) {
+  .navbar {
+    width: 1140px;
+    margin: 0 auto;
+  }
+}
+.active {
+  background-color: $color-yellow;
+  color: $color-dark-blue !important;
+}

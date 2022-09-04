@@ -1,1 +1,18 @@
-<p>header works!</p>
+<header>
+  <nav class="navbar">
+    <div class="brand__title">
+      <a routerLink="/">
+        STAR WARS
+      </a>
+    </div>
+    <ul>
+      <li>
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          Home
+        </a>
+      </li>
+      <li><a routerLink="people" routerLinkActive="active">People</a></li>
+      <li><a routerLink="planets" routerLinkActive="active">Planets</a></li>
+    </ul>
+  </nav>
+</header>

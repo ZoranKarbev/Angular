@@ -19,6 +19,17 @@
     text-align: center;
     line-height: 1.1;
   }
+   
+  a,
+  a:hover,
+  a:focus,
+  a:active {
+    text-decoration: none;
+  }
+}
+.hero__body {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 .hero_links__list {
   display: flex;
@@ -27,31 +38,62 @@
   gap: 1rem;
   padding-left: 0;
   
-  &__item {
+  &__item-link {
     border: 3px solid $color-yellow;
     font-weight: 100;
-    padding: 0.5rem 1.5rem;
-   text-align: center;
+    padding: 0.3rem 0.75rem;
+    text-align: center;
+    color: $color-light;
+    font-size: 13px;
   }
   
-  &__item:hover,
-  &__item:focus {
+  &__item-link:hover,
+  &__item-link:focus {
     background-color: $color-yellow;
     color: $color-dark-blue;
     font-weight: 100;
     padding: 0.5rem 1.5rem;
     text-align: center;
-  }
+  } 
+}
+ @media only screen and (min-width: 576px) {
+   
+ }
 
-    @media only screen and (min-width: 600px) {
-      
+ @media (min-width: 768px) {
+  .hero__body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+  
+      &__header {
+        width: 600px;
+        text-align: center;
+        font-size: 100px !important;
+  
+      }
+  
+      h2 {
+        width: 700px;
+        font-size: 66px;
+      }
     }
   
-  a,
-  a:hover,
-  a:focus,
-  a:active {
-    text-decoration: none;
-    color: inherit;
+    .hero_links__list__item-link {
+      font-size: 18px;
+      padding: 0.5rem 1.5rem;
+    }
   }
-}
+
+ @media (min-width: 992px) {
+  .hero__body {
+    h2 {
+      margin: 1rem;
+    }
+  }
+ }
+
+ @media (min-width: 1200px) {
+   
+ }

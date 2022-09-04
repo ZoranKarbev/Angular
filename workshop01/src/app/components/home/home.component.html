@@ -1,15 +1,18 @@
 <section class="container">
   <div class="hero">
     <div class="hero__body">
-      <h1>Star Wars</h1>
+      <h1 class="hero__body__header">Star Wars</h1>
       <h2>May the Force be with you!</h2>
     </div>
     <div class="hero__links">
-      <ul class="hero_links__list">
-        <li class="hero_links__list__item"><a routerLink="people" routerLinkActive="active">Meet the People</a></li>
-        <li class="hero_links__list__item"><a routerLink="planets" routerLinkActive="active">Explore the Planets</a>
-        </li>
-      </ul>
+      <div class="hero_links__list">
+        <a routerLink="people" routerLinkActive="active" class="hero_links__list__item-link">
+          Meet the People
+        </a>
+        <a routerLink="planets" routerLinkActive="active" class="hero_links__list__item-link">
+          Explore the Planets
+        </a>
+      </div>
     </div>
   </div>
 </section>
