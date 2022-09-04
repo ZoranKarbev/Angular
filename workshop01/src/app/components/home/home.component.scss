@@ -12,6 +12,7 @@
     line-height: 1.0;
     padding-bottom: 16px;
     color: $color-yellow;
+    letter-spacing: 1px;
   }
   
   h2 {
@@ -36,7 +37,6 @@
   flex-direction: column;
   justify-content: space-around;
   gap: 1rem;
-  padding-left: 0;
   
   &__item-link {
     border: 3px solid $color-yellow;
@@ -56,10 +56,7 @@
     text-align: center;
   } 
 }
- @media only screen and (min-width: 576px) {
-   
- }
-
+ 
  @media (min-width: 768px) {
   .hero__body {
       display: flex;
@@ -92,8 +89,4 @@
       margin: 1rem;
     }
   }
- }
-
- @media (min-width: 1200px) {
-   
  }
