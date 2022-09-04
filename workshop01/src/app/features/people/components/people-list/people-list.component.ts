@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SwapiService } from 'src/app/services/swapi.service';
 
 @Component({
   selector: 'app-people-list',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PeopleListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private peopleService: SwapiService) { }
 
-  ngOnInit(): void {
+  get peopleObs$() {
+    return this.peopleService.peopleObs$;
   }
 
+  ngOnInit(): void {
+    this.peopleService.getPeople();
+  }
 }
