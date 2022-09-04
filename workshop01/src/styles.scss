@@ -1,3 +1,6 @@
+@import './variables.scss';
+@import url(//db.onlinewebfonts.com/c/b357504117fd83d25e5a63601455b367?family=SF+Distant+Galaxy);
+
 /* Box sizing rules */
 *,
 *::before,
@@ -17,6 +20,8 @@ blockquote,
 dl,
 dd {
   margin: 0;
+  font-weight: 400;
+  letter-spacing: 3px;
 }
 
 /* Remove list styles on ul, ol elements */
@@ -29,11 +34,20 @@ ol {
 html:focus-within {
   scroll-behavior: smooth;
 }
+/* Set core html defaults */
+html {
+  min-height: 100%;
+  background-color: $color-dark-blue;
+  background-image: url('./assets/img/dark-sky.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 
 /* Set core body defaults */
 body {
-  background-color: #f3f3f3;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: $color-light;
+  font-family: $font-star-wars;
   line-height: 1.5;
   min-height: 100vh;
   text-rendering: optimizeSpeed;

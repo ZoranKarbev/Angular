@@ -1,28 +1,52 @@
-section {
+@import "../../../variables.scss";
+.hero {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 85vh;
+
   h1 {
     text-align: center;
     font-size: 66px;
     line-height: 1.0;
-    padding-bottom: 40px;
-    text-transform: uppercase;
+    padding-bottom: 16px;
+    color: $color-yellow;
   }
   
   h2 {
     font-size: 44px;
-    text-transform: uppercase;
     text-align: center;
     line-height: 1.1;
   }
 }
 .hero_links__list {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: space-around;
   gap: 1rem;
+  padding-left: 0;
+  
+  &__item {
+    border: 3px solid $color-yellow;
+    font-weight: 100;
+    padding: 0.5rem 1.5rem;
+   text-align: center;
+  }
+  
+  &__item:hover,
+  &__item:focus {
+    background-color: $color-yellow;
+    color: $color-dark-blue;
+    font-weight: 100;
+    padding: 0.5rem 1.5rem;
+    text-align: center;
+  }
+
+    @media only screen and (min-width: 600px) {
+      
+    }
+  
   a,
   a:hover,
   a:focus,
