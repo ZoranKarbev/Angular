@@ -17,13 +17,11 @@ export class PlanetDetailsComponent implements OnInit {
     private planetService: SwapiService,
     private route: ActivatedRoute,
   ) { 
-    this.planetId = this.route.snapshot.params['id']
-    console.log(this.planetId)
+    this.planetId = this.route.snapshot.params['id'];
   }
 
   ngOnInit(): void {
-    const planet = this.planetService.selectedPlanetSubject.getValue()
-    console.log("planet", planet)
+    const planet = this.planetService.selectedPlanetSubject.getValue();
     if(!planet?.name) {
       this.planetService.getPlanetById(this.planetId);
     } 
@@ -32,5 +30,4 @@ export class PlanetDetailsComponent implements OnInit {
       next: (planet) => (this.selectedPlanet = planet)
     })
   }
-
 }

@@ -4,8 +4,6 @@ import { PlanetsRoutingModule } from './planets-routing.module';
 import { PlanetsListComponent } from './components/planets-list/planets-list.component';
 import { PlanetDetailsComponent } from './components/planet-details/planet-details.component';
 
-
-
 @NgModule({
   declarations: [
     PlanetsListComponent,

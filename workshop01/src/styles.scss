@@ -37,11 +37,9 @@ html:focus-within {
 html {
   min-height: 100%;
   background-color: $color-dark-blue;
-  // background-image: url('./assets/img/dark-sky.webp');
   background-image: url('./assets/img/galaxy.webp');
   background-size: cover;
   background-position: center;
-  // background-repeat: no-repeat;
   background-repeat: repeat-y;
 }
 

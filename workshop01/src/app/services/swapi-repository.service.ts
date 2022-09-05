@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Planet } from '../interfaces/planet';
-import { EMPTY, expand, map, Observable, reduce, shareReplay } from 'rxjs';
+import { EMPTY, expand, map, Observable, reduce } from 'rxjs';
 import { Person } from '../interfaces/person';
 
-// const BASE_URL = 'https://swapi.dev/api'
 const PLANETS_URL = 'https://swapi.dev/api/planets/'
 const PEOPLE_URL = 'https://swapi.dev/api/people/'
 
@@ -40,6 +39,5 @@ export class SwapiRepositoryService {
     return this.http
     .get(PEOPLE_URL + personId)
     .pipe(map((data) => data as Person))   
-  }
- 
+  } 
 }

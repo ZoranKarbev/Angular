@@ -10,13 +10,8 @@ import { SwapiService } from 'src/app/services/swapi.service';
 })
 export class PlanetsListComponent implements OnInit {
   planets: Planet[];
-  showLoader: boolean = true;
   constructor(private planetService: SwapiService, private router: Router) { }
  
-  // get planetsObs$() {
-  //   return  this.planetService.planetsObs$;
-  // }
-
   ngOnInit(): void {
     this.planetService.getPlanets()
     this.planetService.planetsObs$.subscribe({
@@ -25,7 +20,6 @@ export class PlanetsListComponent implements OnInit {
   }
 
   onPlanetClick(planet: Planet) {
-    console.log("Planet", planet)
     this.planetService.onPlanetSelect(planet);
     const id = planet.url.split("/").slice(-2)[0];
     this.router.navigate(['planets/details', id])

@@ -10,12 +10,7 @@ import { Person } from "src/app/interfaces/person";
 })
 export class PeopleListComponent implements OnInit {
   people: Person[];
-  showLoader: boolean = true;
   constructor(private peopleService: SwapiService, private router: Router) { }
-
-  // get peopleObs$() {
-  //   return this.peopleService.peopleObs$;
-  // }
 
   ngOnInit(): void {
     this.peopleService.getPeople();
@@ -25,10 +20,8 @@ export class PeopleListComponent implements OnInit {
   }
 
   onPersonClick(person: Person) {
-    console.log("Person", person);
     this.peopleService.onPersonSelect(person);
     const id = person.url.split("/").slice(-2)[0];
-    console.log("ID", id)
     this.router.navigate(["people/details", id])
   }
 }

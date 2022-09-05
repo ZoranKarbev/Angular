@@ -17,12 +17,10 @@ export class PersonDetailsComponent implements OnInit {
     private route: ActivatedRoute
   ) { 
     this.personId = this.route.snapshot.params['id']
-    console.log("Person ID", this.personId)
   }
 
   ngOnInit(): void {
   const person = this.peopleService.selectedPersonSubject.getValue();
-  console.log("Person", person);
   if(!person?.name) {
     this.peopleService.getPersonById(this.personId);
   }
@@ -30,5 +28,4 @@ export class PersonDetailsComponent implements OnInit {
     next: (person) => (this.selectedPerson = person)
   })
   }
-
 }

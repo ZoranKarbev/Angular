@@ -4,8 +4,6 @@ import { PeopleRoutingModule } from './people-routing.module';
 import { PeopleListComponent } from './components/people-list/people-list.component';
 import { PersonDetailsComponent } from './components/person-details/person-details.component';
 
-
-
 @NgModule({
   declarations: [
     PeopleListComponent,
