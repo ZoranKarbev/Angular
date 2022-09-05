@@ -9,7 +9,7 @@ import { Person } from "src/app/interfaces/person";
   styleUrls: ['./people-list.component.scss']
 })
 export class PeopleListComponent implements OnInit {
-  people: Person[];
+  people: Person[] =[];
   constructor(private peopleService: SwapiService, private router: Router) { }
 
   ngOnInit(): void {

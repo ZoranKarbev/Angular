@@ -25,12 +25,14 @@ export class SwapiService {
   selectedPersonObs$ = this.selectedPersonSubject.asObservable();
   
   getPlanets() {
-    this.swapiRepositoryService.fetchPlanets().subscribe({
-      next: (planets: Planet[]) => {        
-        this.planetsSubject.next(planets);
-      },
-      error: (err) => console.error(err)
-    })    
+    if (this.peopleSubject.getValue().length < 1) {
+      this.swapiRepositoryService.fetchPlanets().subscribe({
+        next: (planets: Planet[]) => {        
+          this.planetsSubject.next(planets);
+        },
+        error: (err) => console.error(err)
+      })
+    }
   }
 
   getPlanetById(planetId: string) {
@@ -47,12 +49,14 @@ export class SwapiService {
   }
 
   getPeople() {
-    this.swapiRepositoryService.fetchPeople().subscribe({
-      next: (people: Person[]) => {
-        this.peopleSubject.next(people)        
-      },
-      error: (err) => console.error(err) 
-    })    
+    if (this.peopleSubject.getValue().length < 1) {
+      this.swapiRepositoryService.fetchPeople().subscribe({
+        next: (people: Person[]) => {
+            this.peopleSubject.next(people)        
+        },
+        error: (err) => console.error(err) 
+      })    
+    }
   }
 
   getPersonById(personId: string) {
