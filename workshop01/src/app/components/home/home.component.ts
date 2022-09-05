@@ -10,9 +10,7 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    const url = "https://swapi.dev/api/planets/133/"
-    console.log(url.split("/").slice(-2)[0])
-
+    
   }
 
 }

@@ -7,20 +7,17 @@
   padding-inline-start: 0;
   display: inline-flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
 }
 .planets-list__item {
-  background-color: white;
+  background-color: $color-light;
     padding: 2px 6px;
     margin: 10px 5px;
     color: $color-dark-blue;
     border-radius: 4px;
     cursor: pointer;
     font-size: 14px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 .planets-list__item:hover, 
 .planets-list__item:active,
@@ -35,4 +32,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media only screen and (min-width: 770px) {
+  .planets-list {
+    justify-content: space-between;
+  }
 }
