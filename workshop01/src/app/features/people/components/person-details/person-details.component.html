@@ -1,1 +1,17 @@
-<p>person-details works!</p>
+<section *ngIf='selectedPerson' class="person">
+  <div class="person__details">
+    <h1 class="person__details__title">{{ selectedPerson.name }}</h1>
+    <h2>Person Details</h2>
+    <div>
+      <p><span>Birth year :</span> {{ selectedPerson.birth_year}}</p>
+      <p><span>Gender</span>: {{ selectedPerson.gender }}</p>
+      <p><span>homeworld:</span> {{ selectedPerson.homeworld }}</p>
+      <p><span>Height:</span> {{ selectedPerson.height }} cm.</p>
+      <p><span>Mass:</span> {{ selectedPerson.mass }} kg.</p>
+      <p><span>Skin_color:</span> {{ selectedPerson.skin_color }}</p>
+      <p><span>Hair color:</span> {{ selectedPerson.hair_color }}</p>
+      <p><span>Eye color:</span> {{ selectedPerson.eye_color }}</p>
+    </div>
+    <a class="people__link" routerLink="/people">Back to People List</a>
+  </div>
+</section>

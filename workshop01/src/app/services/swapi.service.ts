@@ -67,7 +67,7 @@ export class SwapiService {
     })    
   }
 
-  getPersonByIs(personId: string) {
+  getPersonById(personId: string) {
     this.swapiRepositoryService.fetchPersonById(personId).subscribe({
       next: (person: Person) => {
         console.log("Person", person)

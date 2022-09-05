@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Person } from 'src/app/interfaces/person';
+import { SwapiService } from 'src/app/services/swapi.service';
 
 @Component({
   selector: 'app-person-details',
@@ -6,10 +9,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./person-details.component.scss']
 })
 export class PersonDetailsComponent implements OnInit {
-
-  constructor() { }
+  selectedPerson: Person | null;
+  personId: string;
+  people: Person[];
+  constructor(
+    private peopleService: SwapiService,
+    private route: ActivatedRoute
+  ) { 
+    this.personId = this.route.snapshot.params['id']
+    console.log("Person ID", this.personId)
+  }
 
   ngOnInit(): void {
+  const person = this.peopleService.selectedPersonSubject.getValue();
+  console.log("Person", person);
+  if(!person?.name) {
+    this.peopleService.getPersonById(this.personId);
+  }
+  this.peopleService.selectedPersonObs$.subscribe({
+    next: (person) => (this.selectedPerson = person)
+  })
   }
 
 }

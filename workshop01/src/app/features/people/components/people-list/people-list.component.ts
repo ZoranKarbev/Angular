@@ -28,6 +28,7 @@ export class PeopleListComponent implements OnInit {
     console.log("Person", person);
     this.peopleService.onPersonSelect(person);
     const id = person.url.split("/").slice(-2)[0];
-    this.router.navigate(["person/details", id])
+    console.log("ID", id)
+    this.router.navigate(["people/details", id])
   }
 }

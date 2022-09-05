@@ -9,7 +9,7 @@ import { SwapiService } from 'src/app/services/swapi.service';
   styleUrls: ['./planet-details.component.scss']
 })
 export class PlanetDetailsComponent implements OnInit {
-  selectedPlanet: Planet;
+  selectedPlanet: Planet | null;
   planetId:string;
   planets: Planet[];
 
@@ -29,7 +29,7 @@ export class PlanetDetailsComponent implements OnInit {
     } 
 
     this.planetService.selectedPlanetObs$.subscribe({
-      next: (planet: any) => (this.selectedPlanet = planet)
+      next: (planet) => (this.selectedPlanet = planet)
     })
   }
 
