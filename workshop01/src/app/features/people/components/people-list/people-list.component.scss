@@ -1,0 +1,56 @@
+@import '../../../../../variables.scss';
+
+.people {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.people-header {
+  text-align: center;
+  margin-top: 2rem;
+
+  & h1 {
+    color: $color-yellow;
+  }
+}
+
+.people-list {
+  padding-inline-start: 0;
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.people-list__item {
+  background-color: $color-light;
+  padding: 2px 6px;
+  margin: 10px 5px;
+  color: $color-dark-blue;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.people-list__item:hover,
+.people-list__item:active,
+.people-list__item:focus {
+  background-color: $color-yellow;
+  transform: scale(1.05);
+}
+
+.loader {
+  height: 80vh;
+  font-size: 3rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media only screen and (min-width: 770px) {
+  .people-list {
+    justify-content: space-between;
+  }
+}

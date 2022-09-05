@@ -1,1 +1,13 @@
-<p>people-list works!</p>
+<section class="people">
+  <div class="people-header" *ngIf="people.length > 0; else loader">
+    <h1>Star Wars People</h1>
+    <ul class="people-list">
+      <li *ngFor="let person of people" (click)="onPersonClick(person)" class="people-list__item">
+        {{person.name}}
+      </li>
+    </ul>
+  </div>
+  <ng-template #loader>
+    <div class="loader">Loading...</div>
+  </ng-template>
+</section>
