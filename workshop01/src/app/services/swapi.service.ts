@@ -27,6 +27,9 @@ export class SwapiService {
   selectedPersonObs$ = this.selectedPersonSubject.asObservable();
 
   getPlanets() {
+    console.log('Planets Subject', this.planetsSubject)
+    console.log('Planets Subject Value', this.planetsSubject.getValue())
+    console.log('Planets Subject Obs', this.planetsObs$)     
     this.swapiRepositoryService.fetchPlanets().subscribe({
       // next: (planets: Planet[]) => this.planetsSubject.next(planets),
       next: (planets: Planet[]) => {
@@ -35,6 +38,9 @@ export class SwapiService {
       },
       error: (err) => console.error(err)
     })    
+    console.log('Planets Subject Value', this.planetsSubject.getValue())
+    console.log('Planets Subject', this.planetsSubject)
+    console.log('Planets Subject Obs', this.planetsObs$)
   }
 
   getPlanetById(planetId: string) {
@@ -45,6 +51,10 @@ export class SwapiService {
       },
       error: (err) => console.error(err)
     })
+  }
+
+  onPlanetSelect(planet: Planet) {
+    this.selectedPlanetSubject.next(planet);
   }
 
   getPeople() {
@@ -65,5 +75,9 @@ export class SwapiService {
       },
       error: (err) => console.error(err)
     })
+  }
+
+  onPersonSelect(person: Person) {
+    this.selectedPersonSubject.next(person);
   }
 }

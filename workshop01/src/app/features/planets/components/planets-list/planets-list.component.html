@@ -1,12 +1,14 @@
-<section>
-  <div>
+<section class="planets">
+  <div class="planets-header">
     <h1>Star Wars Planets</h1>
   </div>
-  <div class="planets list">
-    <ul>
-      <!-- <li *ngFor="let planet of planetsObs$ | async">
+  <div>
+    <ul class="planets-list">
+      <li *ngFor="let planet of planetsObs$ | async" (click)="onPlanetClick(planet)" class="planets-list__item">
+        {{planet.name}}
+      </li>
 
-      </li> -->
     </ul>
+
   </div>
 </section>

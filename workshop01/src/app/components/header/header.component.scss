@@ -1,6 +1,7 @@
 @import "../../../variables.scss";
 header {
   background-color: $color-dark-blue-transparent;
+  box-shadow: 0px 2px 2px 1px rgba(255, 255, 255, 0.2);
 }
 .navbar {
   color: $color-light;

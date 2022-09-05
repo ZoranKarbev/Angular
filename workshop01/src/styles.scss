@@ -37,15 +37,18 @@ html:focus-within {
 html {
   min-height: 100%;
   background-color: $color-dark-blue;
-  background-image: url('./assets/img/dark-sky.webp');
+  // background-image: url('./assets/img/dark-sky.webp');
+  background-image: url('./assets/img/galaxy.webp');
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
+  // background-repeat: no-repeat;
+  background-repeat: repeat-y;
 }
 
 /* Set core body defaults */
 body {
   color: $color-light;
+  background-color: rgba(14, 4, 55, 0.7);;
   font-family: $font-star-wars;
   line-height: 1.5;
   min-height: 100vh;

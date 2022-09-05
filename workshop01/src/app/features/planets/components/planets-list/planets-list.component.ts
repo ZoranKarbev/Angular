@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Planet } from 'src/app/interfaces/planet';
 import { SwapiService } from 'src/app/services/swapi.service';
 
 @Component({
@@ -8,7 +10,7 @@ import { SwapiService } from 'src/app/services/swapi.service';
 })
 export class PlanetsListComponent implements OnInit {
 
-  constructor(private planetService: SwapiService) { }
+  constructor(private planetService: SwapiService, private router: Router) { }
  
   get planetsObs$() {
     return  this.planetService.planetsObs$;
@@ -16,5 +18,13 @@ export class PlanetsListComponent implements OnInit {
 
   ngOnInit(): void {
     this.planetService.getPlanets()
+  }
+
+  onPlanetClick(planet: Planet) {
+    console.log("Planet", planet)
+    this.planetService.onPlanetSelect(planet);
+    const id = planet.url.split("/").slice(-2)[0];
+    this.router.navigate(['planets/details', id])
+
   }
 }

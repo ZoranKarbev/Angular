@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Planet } from '../interfaces/planet';
-import { EMPTY, expand, map, Observable, reduce } from 'rxjs';
+import { EMPTY, expand, map, Observable, reduce, shareReplay } from 'rxjs';
 import { Person } from '../interfaces/person';
 
 // const BASE_URL = 'https://swapi.dev/api'
@@ -16,9 +16,9 @@ export class SwapiRepositoryService {
   
   fetchPlanets(): Observable<Planet[]> {
     return this.http.get(PLANETS_URL).pipe(
-      map((response: any) => response),
+      map((data: any) => data),
       expand(data => data.next ? this.http.get(data.next) : EMPTY),
-      reduce((acc: any, current: any) => acc.concat(current.results), [])
+      reduce((acc, current: any) => acc.concat(current.results), [])
     )
   }
   
@@ -35,7 +35,7 @@ export class SwapiRepositoryService {
       reduce((acc: any, current: any) => acc.concat(current.results), [])
     )
   }
-  
+
   fetchPersonById(personId: string): Observable<Person> {
     return this.http
     .get(PEOPLE_URL + personId)
