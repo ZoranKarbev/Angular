@@ -1,6 +1,7 @@
 @import '../../../../../variables.scss';
 .planets-header{
   text-align: center;
+  margin-top: 2rem;
 }
 .planets-list {
   padding-inline-start: 0;
@@ -12,14 +13,26 @@
 .planets-list__item {
   background-color: white;
     padding: 2px 6px;
-    // border: 1.5px solid #090c08;
     margin: 10px 5px;
     color: $color-dark-blue;
     border-radius: 4px;
     cursor: pointer;
     font-size: 14px;
-  
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+.planets-list__item:hover, 
+.planets-list__item:active,
+.planets-list__item:focus {
+  background-color: $color-yellow;
+  transform: scale(1.05);
+}
+.loader {
+  height: 80vh;
+  font-size: 3rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

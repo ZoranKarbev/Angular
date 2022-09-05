@@ -25,16 +25,16 @@ export class SwapiService {
 
   selectedPersonSubject = new BehaviorSubject<Person | null>(null);
   selectedPersonObs$ = this.selectedPersonSubject.asObservable();
-
+  
   getPlanets() {
     console.log('Planets Subject', this.planetsSubject)
     console.log('Planets Subject Value', this.planetsSubject.getValue())
     console.log('Planets Subject Obs', this.planetsObs$)     
     this.swapiRepositoryService.fetchPlanets().subscribe({
       // next: (planets: Planet[]) => this.planetsSubject.next(planets),
-      next: (planets: Planet[]) => {
+      next: (planets: Planet[]) => {        
         console.log("Planets", planets);
-        this.planetsSubject.next(planets)
+        this.planetsSubject.next(planets);
       },
       error: (err) => console.error(err)
     })    

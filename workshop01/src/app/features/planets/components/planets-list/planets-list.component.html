@@ -1,14 +1,14 @@
 <section class="planets">
-  <div class="planets-header">
+  <div class="planets-header" *ngIf="planets.length > 0; else loader">
     <h1>Star Wars Planets</h1>
-  </div>
-  <div>
     <ul class="planets-list">
-      <li *ngFor="let planet of planetsObs$ | async" (click)="onPlanetClick(planet)" class="planets-list__item">
+      <li *ngFor="let planet of planets" (click)="onPlanetClick(planet)" class="planets-list__item">
         {{planet.name}}
       </li>
-
     </ul>
-
   </div>
+  <ng-template #loader>
+    <div class="loader">Loading...</div>
+  </ng-template>
+  <!-- <div *ngIf='!planetsObs$'>Loading...</div> -->
 </section>
