@@ -29,6 +29,5 @@ export class PlanetsListComponent implements OnInit {
     this.planetService.onPlanetSelect(planet);
     const id = planet.url.split("/").slice(-2)[0];
     this.router.navigate(['planets/details', id])
-
   }
 }

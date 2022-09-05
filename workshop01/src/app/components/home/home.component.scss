@@ -48,7 +48,8 @@
   }
   
   &__item-link:hover,
-  &__item-link:focus {
+  &__item-link:focus,
+  &__item-link:active {
     background-color: $color-yellow;
     color: $color-dark-blue;
     font-weight: 100;

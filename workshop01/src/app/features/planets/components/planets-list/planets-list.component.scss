@@ -1,7 +1,15 @@
 @import '../../../../../variables.scss';
+.planets {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .planets-header{
   text-align: center;
   margin-top: 2rem;
+  & h1 {
+    color: $color-yellow;
+  }
 }
 .planets-list {
   padding-inline-start: 0;

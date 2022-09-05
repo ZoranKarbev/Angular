@@ -1,0 +1,54 @@
+@import '../../../../../variables.scss';
+
+.planet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  min-height: 80vh;
+  margin-bottom: 1rem;
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    p {
+      margin: 1rem 0rem;
+    }
+    span {
+      color: $color-yellow;
+    }
+    &__title {
+    color: $color-yellow;
+    border-bottom: 1px solid $color-light;
+    font-size: 2rem;
+    margin: 2rem 0rem;
+    width: fit-content;
+    }
+  }
+}
+.planets__link {
+  text-decoration: none;
+  border: 3px solid $color-yellow;
+  font-weight: 100;
+  text-align: center;
+  color: $color-light;
+  font-size: 14px;
+  padding: 0.5em 1.5em;
+  margin: 2rem 0rem;
+  width: 320px;
+}
+
+.planets__link:hover,
+.planets__link:focus,
+.planets__link:active {
+  background-color: $color-yellow;
+  color: $color-dark-blue;
+}
+
+@media (max-width: 400px) {
+  .planets__link {
+    width: 260px;
+    padding: 0.3em 0.2em;
+  }
+}

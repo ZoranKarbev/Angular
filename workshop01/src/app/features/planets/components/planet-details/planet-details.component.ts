@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Planet } from 'src/app/interfaces/planet';
+import { SwapiService } from 'src/app/services/swapi.service';
 
 @Component({
   selector: 'app-planet-details',
@@ -6,10 +9,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./planet-details.component.scss']
 })
 export class PlanetDetailsComponent implements OnInit {
+  selectedPlanet: Planet;
+  planetId:string;
+  planets: Planet[];
 
-  constructor() { }
+  constructor(
+    private planetService: SwapiService,
+    private route: ActivatedRoute,
+  ) { 
+    this.planetId = this.route.snapshot.params['id']
+    console.log(this.planetId)
+  }
 
   ngOnInit(): void {
+    const planet = this.planetService.selectedPlanetSubject.getValue()
+    console.log("planet", planet)
+    if(!planet?.name) {
+      this.planetService.getPlanetById(this.planetId);
+    } 
+
+    this.planetService.selectedPlanetObs$.subscribe({
+      next: (planet: any) => (this.selectedPlanet = planet)
+    })
   }
 
 }

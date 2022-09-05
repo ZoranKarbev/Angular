@@ -1,1 +1,32 @@
-<p>planet-details works!</p>
+<section *ngIf='selectedPlanet' class="planet">
+  <div class="planet__details">
+    <h1 class="planet__details__title">{{ selectedPlanet.name }}</h1>
+    <h2>Planet Details</h2>
+    <div>
+      <p><span>Population:</span> {{ selectedPlanet.population }}</p>
+      <p><span>Climate:</span> {{ selectedPlanet.climate }}</p>
+      <p><span>Terrain:</span> {{ selectedPlanet.terrain }}</p>
+      <p><span>Diameter</span>: {{ selectedPlanet.diameter }} km.</p>
+      <p><span>Gravity:</span> {{ selectedPlanet.gravity }}</p>
+      <p><span>Orbital period:</span> {{ selectedPlanet.orbital_period }} days</p>
+      <p><span>Rotation period:</span> {{ selectedPlanet.rotation_period }} hours</p>
+    </div>
+    <a class="planets__link" routerLink="/planets">Back to Planets List</a>
+  </div>
+  <!-- <div >
+  </div> -->
+</section>
+
+<!-- export interface Planet {
+climate: string;
+diameter: string;
+gravity: string;
+name: string;
+orbital_period: string;
+population: string;
+residents: string[];
+rotation_period: string;
+surface_water: string;
+terrain: string;
+url: string;
+} -->
