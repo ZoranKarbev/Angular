@@ -1,4 +1,5 @@
 @import "../../../variables.scss";
+
 .planets {
   display: flex;
   flex-direction: column;
@@ -27,7 +28,9 @@
   justify-content: center;
   position: relative;
   height: 800px;
-  color: $color-yellow;
+  color: transparent;
+  text-shadow: $text-shadow;
+  color: transparent;
   font-size: 300%;
   font-weight: 600;
   letter-spacing: 6px;
