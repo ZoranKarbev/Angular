@@ -25,7 +25,7 @@ export class SwapiService {
   selectedPersonObs$ = this.selectedPersonSubject.asObservable();
   
   getPlanets() {
-    if (this.peopleSubject.getValue().length < 1) {
+    if (this.planetsSubject.getValue().length < 1) {
       this.swapiRepositoryService.fetchPlanets().subscribe({
         next: (planets: Planet[]) => {        
           this.planetsSubject.next(planets);
